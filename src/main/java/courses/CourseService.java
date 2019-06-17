@@ -1,18 +1,17 @@
-package mainPackage;
+package courses;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TopicService {
+public class CourseService {
 
     @Autowired
-    TopicRepository topicRepository;
+    CourseRepository courseRepository;
 
 //   List<Topic> topics = new ArrayList<>( Arrays.asList(
 //
@@ -24,31 +23,31 @@ public class TopicService {
 
 
 
-   public List<Topic> getAllTopics(){
+   public List<Course> getAllCourses(){
 
     List topics = new ArrayList();
-         topicRepository.findAll().forEach(topics::add);
+         courseRepository.findAll().forEach(topics::add);
 
          return topics;
 
    }
 
-   public Optional<Topic> getTopic(String id ) {
+   public Optional<Course> getCourse(String id ) {
 
 //
 //      return   topics.stream().filter( t -> t.getId().equals(id)).findFirst().get();
 
 
-       return topicRepository.findById(id);
+       return courseRepository.findById(id);
 
    }
 
 
 
-    public void addTopic(Topic topic) {
+    public void addCourse(Course Course) {
 
 
-    topicRepository.save(topic);
+    courseRepository.save(Course);
 
 
 
@@ -59,7 +58,7 @@ public class TopicService {
 
     }
 
-    public void updateTopic(Topic topic, String id) {
+    public void updateCourse(Course course, String id) {
 
 //        for( int i = 0; i < topics.size(); i++ ){
 //
@@ -72,11 +71,11 @@ public class TopicService {
 //            }
 //        }
 
-        topicRepository.save(topic);
+        courseRepository.save(course);
 
     }
 
-    public void DeleteTopic(String id) {
+    public void DeleteCourse(String id) {
 
 //        for( int i = 0; i < topics.size(); i++ ){
 //
@@ -89,7 +88,7 @@ public class TopicService {
 //            }
 
 
-        topicRepository.deleteById(id);
+        courseRepository.deleteById(id);
 
 
         }

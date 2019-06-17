@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class TopicController {
@@ -30,7 +31,7 @@ public class TopicController {
 
 
     @RequestMapping( value = "/topics/{ides}" )
-    public Topic getTopic( @PathVariable(value = "ides") String id ){
+    public Optional<Topic> getTopic(@PathVariable(value = "ides") String id ){
 
 
         return topicService.getTopic(id);
